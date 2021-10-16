@@ -1,0 +1,40 @@
+.banner{
+    margin-top: 3px;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../Images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+
+.bannerWrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(191, 211, 216, 0.479);
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    border-radius: 7px;
+    border: .5px solid #fff;
+    box-shadow: rgba(191, 211, 216, 0.479) 0px 4px 12px;
+    
+}
+
+
+.title{
+    font-size: 4rem;
+}
+.secondeTitle{
+    color: tomato;
+}
+.desc{
+    font-size: 1.7rem;
+    text-align: center;
+}

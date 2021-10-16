@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-
+import Navbar from "./Components/Navbar/Navbar";
+import Banner from "./Components/Banner/Banner";
+import "./App.css"
 class App extends Component {
-  num = 10;
   render() {
-    return (
-      <>
-        <div className="container">
-          <h1>Mammad K9</h1>
-          <h2>Mutiple: {this.num * 8} </h2>
-        </div>
-      </>
-    );
+    return(
+      
+      <div className="layout">
+        <Navbar/>
+        <Banner/>
+      </div>
+      
+      )
   }
 }
 export default App;
