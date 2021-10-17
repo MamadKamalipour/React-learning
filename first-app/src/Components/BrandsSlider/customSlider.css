@@ -1,0 +1,7 @@
+.slick-slider{ 
+padding-left: 10rem !important;
+
+}
+.slick-prev:before, .slick-next:before{
+    color: #333;
+}
