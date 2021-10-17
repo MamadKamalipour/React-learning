@@ -47,3 +47,27 @@
     background-color: #a50dfd;
     border-color: #a50dfd;
 }
+.counter{
+  display: flex;
+  align-items: center;
+}
+.counter img {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  padding: .3rem;
+  margin:0 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.downArrow:hover{
+ background-color: rgb(209, 9, 9);
+}
+
+.upArrow:hover{
+ background-color: rgb(21, 148, 21);
+}
+.disable{
+  opacity: .5;
+  cursor: crosshair;
+}

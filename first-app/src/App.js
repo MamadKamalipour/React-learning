@@ -11,60 +11,59 @@ import img1 from "./Images/1.jpg";
 import img2 from "./Images/2.jpg";
 import img3 from "./Images/3.jpg";
 class App extends Component {
-  render() {
-    const items = {
-      item1: {
+  state = {
+    items: [
+      {
         img: img1,
-        alt:"img1",
+        alt: "img1",
         title: "Item 1",
         desc: "this is a test for items Desription this is a test for items Desription this is a test for items Desription",
         price: 29.99,
       },
-      item2: {
+      {
         img: img2,
-        alt:"img2",
+        alt: "img2",
         title: "Item 2",
         desc: "this is a test for items Desription this is a test for items Desription this is a test for items Desription",
         price: 49.99,
       },
-      item3: {
+      {
         img: img3,
-        alt:"img3",
+        alt: "img3",
         title: "Item 3",
         desc: "this is a test for items Desription this is a test for items Desription this is a test for items Desription",
         price: 149.99,
       },
-    };
+
+      {
+        img: img3,
+        alt: "img3",
+        title: "Item 3",
+        desc: "this is a test for items Desription this is a test for items Desription this is a test for items Desription",
+        price: 149.99,
+      },
+    ],
+  };
+
+  render() {
     return (
       <div className="layout">
         <Navbar />
         <Banner />
         <Cards>
-          <Card
-            img={ items.item1.img}
-            alt= { items.item1.alt}
-            title= { items.item1.title}
-            desc={ items.item1.desc}
-            price={ items.item1.price}
-          />
-          <Card
-           img={ items.item2.img}
-            alt= { items.item2.alt}
-            title= { items.item2.title}
-            desc={ items.item2.desc}
-            price={ items.item2.price}
-          />
-          <Card
-           img={ items.item3.img}
-            alt= { items.item3.alt}
-            title= { items.item3.title}
-            desc={ items.item3.desc}
-            price={ items.item3.price}
-          />
+          {this.state.items.map((item) => (
+            <Card
+              img={item.img}
+              alt={item.alt}
+              title={item.title}
+              desc={item.desc}
+              price={item.price}
+            />
+          ))}
         </Cards>
-      <CallToAction/>
-      <BrandsSlider/>
-      <Footer/>
+        <CallToAction />
+        <BrandsSlider />
+        <Footer />
       </div>
     );
   }

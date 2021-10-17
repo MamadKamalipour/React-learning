@@ -22,14 +22,14 @@ export default class BrandsSlider extends Component {
       <div className={styles.sliderWrapper}>
         <h2> Our Brands</h2>
         <Slider {...settings}>
-          <Brands img={img1} alt="img1"></Brands>
-          <Brands img={img2} alt="img1"></Brands>
-          <Brands img={img3} alt="img1"></Brands>
-          <Brands img={img4} alt="img1"></Brands>{" "}
-          <Brands img={img1} alt="img1"></Brands>
-          <Brands img={img2} alt="img1"></Brands>
-          <Brands img={img3} alt="img1"></Brands>
-          <Brands img={img4} alt="img1"></Brands>
+          <Brands img={img1} alt="img1" />
+          <Brands img={img2} alt="img1"/>
+          <Brands img={img3} alt="img1"/>
+          <Brands img={img4} alt="img1"/>
+          <Brands img={img1} alt="img1"/>
+          <Brands img={img2} alt="img1"/>
+          <Brands img={img3} alt="img1"/>
+          <Brands img={img4} alt="img1"/>
         </Slider>
       </div>
     );
