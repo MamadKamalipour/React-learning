@@ -32,7 +32,8 @@ export default class Card extends Component {
           <h3 className={styles.cardTitle}>This is a {title}</h3>
           <p>{desc}</p>
           <div className={styles.cardFooter}>
-            <span className={styles.cardPrice}>{price}$</span>
+            <span className={styles.cardPrice}>{price} {counter ? `* ${counter} = ${counter * price}` : ""}  $</span>
+
             <div className={styles.counter}>
               <img
                 src={downArrow}
@@ -45,8 +46,7 @@ export default class Card extends Component {
                 src={upArrow}
                 alt="up Arrow"
                 className={this.state.counter===10 ? styles.disable : styles.upArrow} 
-                
-                onClick={this.state.counter===10 ? "":this.upHandler}
+                onClick={ this.state.counter!==10 && this.upHandler}
               />
             </div>
             {/* <button className={styles.AddToCard}>Add To Card</button> */}
