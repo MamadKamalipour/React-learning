@@ -12,6 +12,7 @@ const ProductDetail = (props) => {
     if (data.length > 0) {
       setProduct(data[id - 1]);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const {  title, description, price, category } = product;
