@@ -1,30 +1,12 @@
-import React, { Component } from 'react'
-import { Route  , Switch} from 'react-router-dom'
-import Nav from './components/Nav'
-import HomePage from "./components/HomePage"
-import ProductPage from "./components/Product"
-import BlogPage from "./components/Blog"
-import AboutUsPage from "./components/AboutUs"
+import React from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
+const App = () => {
+    const [name ,  setName] = useLocalStorage("Name", "") 
+  return (
+    <div>
+      <input value={name} onChange={e => setName(e.target.value)} type="text"/> 
+    </div>
+  );
+};
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-          <div>
-          <Nav />
-          <Switch>
-
-          <Route path="/blog" render={(props)=> <BlogPage name="mammadk9" {...props}/>}/>
-          <Route path="/shop" component={ProductPage}/>
-          <Route path="/About-us" component={AboutUsPage}/>
-          <Route exact path="/" component={HomePage}/>
-            
-          </Switch>
-
-          </div>
-
-        
-      </div>
-    )
-  }
-}
+export default App;

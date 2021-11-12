@@ -46,6 +46,9 @@ const Product = ({ productData }) => {
               <i className="fas fa-trash-alt"></i>
             </button>
           )}
+          {
+            quantityCount(state, productData.id) > 1 && <span>{quantityCount(state, productData.id)}</span>
+          }
           {quantityCount(state, productData.id) > 1 && (
             <button
               className={styles.button}

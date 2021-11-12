@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "./ProductDetail.module.css"
 // context
 import { ProductContext } from "../../context/ProductContextProvider";
 
@@ -18,17 +19,18 @@ const ProductDetail = (props) => {
   const {  title, description, price, category } = product;
 
   return product ? (
-    <div>
-        <img src={product.image} alt={`${title} Pic`} />
-        <div>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <p>
-            <span>Category: </span>
-            {category}
+    <div className={styles.wrapper}>
+        <img src={product.image} alt={`${title} Pic`} className={styles.image}/>
+        <div className={styles.cardWrapper}>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{description}</p>
+          <p className={styles.categorytitle}>
+          Category:
+            <span className={styles.category}>{category} </span>
+            
           </p>
-          <div>
-            <span>{price}$</span>
+          <div className={styles.priceWrapper}>
+            <span className={styles.price}>{price}$</span>
             <Link to="/products">Go Back Shopping</Link>
           </div>
         </div>
