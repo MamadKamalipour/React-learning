@@ -4,7 +4,6 @@ import "./App.css"
 // Components
 import Store from "./components/Store/Store";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import Navbar from "./components/shared/Navbar/Navbar";
 import Shopcard from "./components/ShopCard/Shopcard";
 
 
@@ -16,7 +15,6 @@ const App = () => {
   return (
     <ProductContextProvider>
       <CardContextProvider>
-        <Navbar/>
         <div className="main">
         <Switch>
           <Route path="/products/:id" component={ProductDetail} />

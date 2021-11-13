@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Card from "../shared/Card/Card";
 import styles from "./Shopcard.module.css"
+import Navbar from "../shared/Navbar/Navbar";
 // context
 import { cartContext } from "../../context/CardContextProvider";
 import { Link } from "react-router-dom";
@@ -8,6 +9,7 @@ const Shopcard = () => {
   const { state, dispatch } = useContext(cartContext);
   return (
     <div className={styles.shopcardWrapper}>
+    <Navbar />
       <div className={styles.cards}>
         {state.selectedItems.map((item) => (
           <Card key={item.id} data={item} />

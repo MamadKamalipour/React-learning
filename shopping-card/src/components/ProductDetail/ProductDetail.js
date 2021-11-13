@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css"
+import Navbar from "../shared/Navbar/Navbar";
 // context
 import { ProductContext } from "../../context/ProductContextProvider";
 
@@ -20,6 +21,7 @@ const ProductDetail = (props) => {
 
   return product ? (
     <div className={styles.wrapper}>
+        <Navbar />
         <img src={product.image} alt={`${title} Pic`} className={styles.image}/>
         <div className={styles.cardWrapper}>
           <h3 className={styles.title}>{title}</h3>
