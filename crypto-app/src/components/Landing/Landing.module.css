@@ -1,0 +1,27 @@
+.coinsWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  width: 60%;
+  border-radius: 7px;
+  border: 1px solid rgb(121, 121, 121);
+}
+.input {
+  width: 400px;
+  height: 40px;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+.search_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.search_container img {
+  position: absolute;
+  left: 16px;
+}
