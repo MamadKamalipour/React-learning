@@ -8,6 +8,7 @@ import Chats from "./components/Chats/Chats";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 
 function App() {
+
   return (
     <div className="App">
       <AuthContextProvider>

@@ -13,6 +13,7 @@ const Chats = () => {
   const user = useContext(AuthContext);
   const history = useHistory();
   useEffect(() => {
+    document.title="Chat Rooms"
     if (!user) {
       history.push("/");
       return;

@@ -9,6 +9,7 @@ import google from "../../assets/google.svg";
 import styles from "./Login.module.css";
 
 const Login = () => {
+    document.title = "Chat App By k9"
     return (
         <div className={styles.loginPage}>
             <div className={styles.loginCard}>
