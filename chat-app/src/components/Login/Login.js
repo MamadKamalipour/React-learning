@@ -1,9 +1,9 @@
 import React from 'react';
 import firebase from 'firebase/app';
-import { auth } from "../firebase";
+import { auth } from "../../firebase/firebase";
 
 // Icons 
-import google from "../assets/google.svg";
+import google from "../../assets/google.svg";
 
 // Styles
 import styles from "./Login.module.css";

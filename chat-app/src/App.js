@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 
 // Components
-import Login from "./components/Login";
-import Chats from "./components/Chats";
+import Login from "./components/Login/Login";
+import Chats from "./components/Chats/Chats";
 
 // Contexts
 import AuthContextProvider from "./contexts/AuthContextProvider";
