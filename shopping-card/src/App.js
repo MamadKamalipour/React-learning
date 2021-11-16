@@ -5,6 +5,7 @@ import "./App.css"
 import Store from "./components/Store/Store";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Shopcard from "./components/ShopCard/Shopcard";
+import Navbar from "./components/shared/Navbar/Navbar";
 
 
 // Context
@@ -15,14 +16,13 @@ const App = () => {
   return (
     <ProductContextProvider>
       <CardContextProvider>
-        <div className="main">
+    <Navbar />
         <Switch>
           <Route path="/products/:id" component={ProductDetail} />
           <Route path="/products" component={Store} />
           <Route path="/card" component={Shopcard} />
           <Redirect to="/products" />
         </Switch>
-        </div>
       </CardContextProvider>
     </ProductContextProvider>
   );

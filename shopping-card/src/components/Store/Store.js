@@ -2,6 +2,7 @@ import React, { useContext,useState } from "react";
 // components
 import Product from "../shared/Product/Product";
 import Navbar from "../shared/Navbar/Navbar";
+import Loader from "../Loader/Loader";
 // Context
 import { ProductContext } from "../../context/ProductContextProvider";
 // styles
@@ -17,9 +18,11 @@ const Store = () => {
   return (
     <div className={styles.container}>
     <Navbar value={search} searchHandler={searchHandler} />
+      <div className={styles.products}>
       {products.length !==0 ? searchProduct.map((item) => (
         <Product key={item.id} productData={item} />
-      )): <h2>loading...</h2>}
+      )): <Loader />}
+      </div>
     </div>
   );
 };
