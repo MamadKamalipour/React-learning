@@ -17,9 +17,9 @@ const Store = () => {
   return (
     <div className={styles.container}>
     <Navbar value={search} searchHandler={searchHandler} />
-      {searchProduct.map((item) => (
+      {products.length !==0 ? searchProduct.map((item) => (
         <Product key={item.id} productData={item} />
-      ))}
+      )): <h2>loading...</h2>}
     </div>
   );
 };

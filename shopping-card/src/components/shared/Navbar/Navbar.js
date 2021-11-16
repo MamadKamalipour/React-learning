@@ -20,6 +20,7 @@ const Navbar = (props) => {
           )}
         </div>
       </div>
+            
     </header>
   );
 };
