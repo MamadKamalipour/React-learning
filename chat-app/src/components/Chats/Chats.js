@@ -33,7 +33,6 @@ const Chats = () => {
           formdata.append("email",user.email)
           formdata.append("username",user.email)
           formdata.append("secret",user.uid)
-          formdata.append("secret",user.uid)
           getFile(user.photoURL)
           .then(avatar =>{
               formdata.append("avatar",avatar,avatar.name)
