@@ -1,45 +1,36 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 // icons
 import { SiGoogleanalytics } from "react-icons/si";
 import { BiNews, BiRocket } from "react-icons/bi";
-import { FaWallet } from "react-icons/fa";
-import { AiFillSetting, AiFillAppstore } from "react-icons/ai";
-import { BsCashStack } from "react-icons/bs";
+import { AiFillSetting } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
-
 const Sidebar = () => {
   const links = [
     {
       title: "Dashboard",
       icon: SiGoogleanalytics,
-    },
-    {
-      title: "Buy / Sell",
-      icon: AiFillAppstore,
-    },
-    {
-      title: "News",
-      icon: BiNews,
+      link:"/dashboard"
     },
     {
       title: "Send Money",
       icon: BiRocket,
+      link:"sendmoney"
     },
     {
-      title: "Deposit",
-      icon: BsCashStack,
-    },
-    {
-      title: "Transaction",
-      icon: FaWallet,
+      title: "News",
+      icon: BiNews,
+      link:"/news"
     },
     {
       title: "Account",
       icon: MdAccountCircle,
+      link:"/account"
     },
     {
       title: "Setting",
       icon: AiFillSetting,
+      link:"/setting"
     },
   ];
 
@@ -51,8 +42,9 @@ const Sidebar = () => {
       {
         links.map(link =>{
           return(
-            <li>
-              <a href="/">{<link.icon />}{link.title}</a>
+            <li key={link.title}>
+              <NavLink to={link.link} activeClassName="active">{<link.icon />}{link.title}</NavLink>
+              
             </li>
           )
         })

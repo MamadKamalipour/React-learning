@@ -4,7 +4,7 @@
 
   .brand {
     background-color: #000;
-    height: 10%;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,29 +18,27 @@
       }
     }
   }
-  .links{
-      li{
-          width: 60%;
-          list-style-type: none;
-          margin: 0 auto;
-          margin-top: 2rem;
-          &:nth-of-type(1){
-              a{
-                  color: #c70f61;
-              }
-          }
-        a{
-            color: #fff;
-            text-decoration:none;
-            text-transform: uppercase;
-            display: flex;
-            gap: .7rem;
-            transition: .5s ease-in-out;
-            &:hover{
-                color: #c70f61;
-            }
-        }
-        }
+  .links {
 
+    li {
+      width: 60%;
+      list-style-type: none;
+      margin: 0 auto;
+      margin-top: 2rem;
+      .active {
+        color: #c70f61;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        gap: 0.7rem;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          color: #c70f61;
+        }
+      }
+    }
   }
 }

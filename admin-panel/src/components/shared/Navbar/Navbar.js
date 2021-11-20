@@ -1,28 +1,33 @@
-import React from "react";
+import React,{useContext} from "react";
+import { Link } from "react-router-dom";
 
 // icons
 import { VscArrowSwap } from "react-icons/vsc";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import avatar from "../assets/profile.png";
-
+import avatar from "../../../assets/profile.png";
+// context
+import { userContext } from "../../../context/UserContextProvider";
 const Navbar = () => {
+  const user  = useContext(userContext)
   return (
     <div className="navbar">
       <div className="avatar">
         <img src={avatar} alt="" />
         <div className="info">
-          <h4 className="title">Mohammad kamalipour</h4>
-          <h6 className="status">Online</h6>
+          <h4 className="title">{`${user.user.name} ${user.user.fname}`}</h4>
+          <h6 className="status">{user.user.status}</h6>
         </div>
       </div>
-      <div className="quick">
-        <button>
-          <VscArrowSwap />
-          Quick Transition
-        </button>
-      </div>
+      <Link to="/sendmoney">
+        <div className="quick">
+          <button>
+            <VscArrowSwap />
+            Quick Transition
+          </button>
+        </div>
+      </Link>
       <div className="navbar__info">
         <IoMdNotificationsOutline />
         <FiMail />

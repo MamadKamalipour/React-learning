@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 } from 'uuid';
 import { BsThreeDots } from "react-icons/bs";
 
 const ActivityLog = () => {
@@ -37,7 +38,7 @@ const ActivityLog = () => {
       <div className="activity__container">
         {data.map(log => {
           return(
-            <div className="transaction">
+            <div key={v4()} className="transaction">
               <div className="timestamp">
                 <h5 >{log.day}</h5>
                 <h6 >{log.date}</h6>

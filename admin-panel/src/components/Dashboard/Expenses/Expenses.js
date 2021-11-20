@@ -2,13 +2,13 @@ import React from "react";
 // icon
 import { BsThreeDots } from "react-icons/bs";
 // assets
-import expenseLogo1 from "../assets/expenseLogo1.png";
-import expenseLogo2 from "../assets/expenseLogo2.png";
-import expenseLogo3 from "../assets/expenseLogo3.png";
-import expenseLogo4 from "../assets/expenseLogo4.png";
-import expenseLogo5 from "../assets/expenseLogo5.png";
-import expenseLogo6 from "../assets/expenseLogo6.png";
-import expenseLogo7 from "../assets/expenseLogo7.png";
+import expenseLogo1 from "../../../assets/expenseLogo1.png";
+import expenseLogo2 from "../../../assets/expenseLogo2.png";
+import expenseLogo3 from "../../../assets/expenseLogo3.png";
+import expenseLogo4 from "../../../assets/expenseLogo4.png";
+import expenseLogo5 from "../../../assets/expenseLogo5.png";
+import expenseLogo6 from "../../../assets/expenseLogo6.png";
+import expenseLogo7 from "../../../assets/expenseLogo7.png";
 
 const Expenses = () => {
   const expensData = [
@@ -57,7 +57,7 @@ const Expenses = () => {
       <div className="expenses__container">
         {expensData.map((expense) => {
           return (
-            <div className="expense">
+            <div key={expense.name} className="expense">
               <img src={expense.logo} alt="" />
               <h4 className="expense__title">{expense.name}</h4>
               <h6 className="expense__price">{expense.price}</h6>
