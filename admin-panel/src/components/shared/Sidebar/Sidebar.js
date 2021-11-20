@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 // icons
 import { SiGoogleanalytics } from "react-icons/si";
 import { BiNews, BiRocket } from "react-icons/bi";
-import { AiFillSetting } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md";
 const Sidebar = () => {
   const links = [
@@ -27,11 +26,7 @@ const Sidebar = () => {
       icon: MdAccountCircle,
       link:"/account"
     },
-    {
-      title: "Setting",
-      icon: AiFillSetting,
-      link:"/setting"
-    },
+
   ];
 
   return <div className="sidebar">

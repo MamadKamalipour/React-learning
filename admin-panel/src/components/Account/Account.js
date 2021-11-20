@@ -7,7 +7,6 @@ import { Toastify } from "../shared/Toastify/Toastify";
 const Account = () => {
   // context
   const user = useContext(userContext);
-  console.log(user.user.password);
   //   states
   const [newName, setNewName] = useState("");
   const [newFname, setNewFname] = useState("");

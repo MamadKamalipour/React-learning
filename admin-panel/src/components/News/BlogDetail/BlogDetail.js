@@ -3,15 +3,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { blogContext } from "../../../context/BlogContextProvider";
 import { shorten } from "../../../helpers/functions";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { v4 } from "uuid";
 const BlogDetail = (props) => {
-  const id = props.match.params.id;
-
+  // const id = props.match.params.id;
+  const params = useParams()
+  // console.log(id.id)
   const [blog, setBlog] = useState([]);
   const data = useContext(blogContext);
   let singleBlog = data.filter((item) => {
-    return item._id === `${id}`;
+    return item._id === `${params.id}`;
   });
   useEffect(() => {
     if (data.length > 0) {
@@ -19,7 +20,6 @@ const BlogDetail = (props) => {
     }
   }, [data]);
 
-  console.log(blog);
   return (
     <>
       {blog.length !== 0 ? (
