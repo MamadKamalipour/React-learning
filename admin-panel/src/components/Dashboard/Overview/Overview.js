@@ -62,10 +62,7 @@ const Overview = () => {
     <div className="overview">
       <div className="overview__title">
         <h3>Overview</h3>
-        <div className="title__buttons">
-          <button>Month</button>
-          <button>Year</button>
-        </div>
+
       </div>
       <div className="overview__info">
         <div className="outer">
@@ -106,9 +103,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      <div className="overview__expand">
-        <button>Exopand Chart</button>
-      </div>
+
     </div>
   );
 };

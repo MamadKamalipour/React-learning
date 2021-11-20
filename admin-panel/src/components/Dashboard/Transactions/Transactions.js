@@ -73,16 +73,6 @@ const Transactions = () => {
           </div>
         </div>
       </div>
-      <div className="transactions__details">
-        <div>
-          <h4>Statistics</h4>
-          <h4>Up by 50%</h4>
-        </div>
-        <div>
-          <button>Year</button>
-          <button>Month</button>
-        </div>
-      </div>
       <div className="transactions__graph">
       <Chart data={data} tooltip={true}/>
 

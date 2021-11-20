@@ -3,13 +3,14 @@
     color: #fff;
     width: 100%;
     &__info {
+      width: 90%;
       display: flex;
       justify-content: space-between;
       margin-bottom: 1rem;
     }
     &__container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0fr 0fr;
       gap: 2rem;
 
       .wallet {

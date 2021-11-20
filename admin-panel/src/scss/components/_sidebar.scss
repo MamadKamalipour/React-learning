@@ -27,8 +27,10 @@
       margin-top: 2rem;
       .active {
         color: #c70f61;
+        border-bottom: 1px solid #c70f61;
       }
       a {
+        padding: .5rem;
         color: #fff;
         text-decoration: none;
         text-transform: uppercase;

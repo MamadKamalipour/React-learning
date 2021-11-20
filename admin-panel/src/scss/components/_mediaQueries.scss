@@ -4,15 +4,20 @@
         grid-template-columns: 1fr;
         .sidebar {
           .brand {
-            height: 100%;
-            padding: 3rem;
+            height: 30%;
+            padding: 4rem;
             justify-content: flex-start;
             h2 {
-              font-size: 4rem;
+              font-size: 2rem;
             }
           }
           .links {
-            display: none;
+            height: 50%;
+            font-size: 1rem;
+            display: flex;
+            .active{
+              border-bottom: 0;
+            }
           }
         }
         .app {
@@ -47,6 +52,14 @@
       .shapes__3 {
         display: none;
       }
+      .account__wrapper{
+        width: 100%;
+        &__inputs{
+          input{
+            width: 80vw;
+          }
+        }
+      }
     }
   }
   
@@ -74,4 +87,26 @@
       }
     }
   }
-  
+  @media screen and(max-width: 1440px) {
+    body{
+      .news{
+        .Card{
+          width: 25%;
+        }
+      }
+
+    }
+    
+  }
+  @media screen and(max-width: 768px) {
+    body{
+      .news{
+        .Card{
+          width: 100%;
+        }
+      }
+
+
+    }
+    
+  }

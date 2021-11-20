@@ -1,7 +1,7 @@
 @mixin activitylog {
   .activity {
     color: #fff;
-    &__info {
+    .acitvity__info {
       display: flex;
       justify-content: space-between;
     }
@@ -22,8 +22,8 @@
         grid-template-columns: 0.8fr 0.3fr 2fr;
         margin-bottom: 2rem;
         .dot {
-          height: 0.6rem;
-          width: 0.6rem;
+          height: 0.8rem;
+          width: 0.8rem;
           background-color: #f94144;
           border-radius: 1rem;
         }
