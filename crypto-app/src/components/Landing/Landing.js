@@ -12,7 +12,7 @@ const Landing = () => {
   useEffect(() => {
     const fetchAPI = async () => {
       const data = await getCoin();
-      console.log(data);
+      
       setCoins(data);
     };
     fetchAPI();

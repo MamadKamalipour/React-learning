@@ -10,6 +10,7 @@ const ProductDetail = (props) => {
 
   const data = useContext(ProductContext);
   useEffect(() => {
+
     if (data.length > 0) {
       setProduct(data[id - 1]);
     }

@@ -17,7 +17,7 @@ const Store = () => {
     const searchProduct = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
   return (
     <div className={styles.container}>
-    <Navbar value={search} searchHandler={searchHandler} />
+    
       <div className={styles.products}>
       {products.length !==0 ? searchProduct.map((item) => (
         <Product key={item.id} productData={item} />
