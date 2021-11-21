@@ -66,7 +66,7 @@ const QuickTransaction = () => {
 
   return (
     <div className="sendmoney__wrapper">
-      <form onSubmit={formHandler} style={{ display: "block", width: "100%" }}>
+      <form onSubmit={formHandler}>
         <h2>Select Your Wallet</h2>
         <Select
           options={selectOptions}
