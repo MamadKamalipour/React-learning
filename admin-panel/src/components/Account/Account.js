@@ -1,128 +1,114 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { userContext } from "../../context/UserContextProvider";
 import Navbar from "../shared/Navbar/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TextInput from "../shared/Input/TextInput";
 import { Toastify } from "../shared/Toastify/Toastify";
+
+import { Formik, Form } from "formik";
+
+import * as Yup from "yup";
+
 const Account = () => {
   // context
   const user = useContext(userContext);
-  //   states
-  const [newName, setNewName] = useState("");
-  const [newFname, setNewFname] = useState("");
-  const [newEmail, setEmail] = useState("");
-  const oldPassword = user.user.password;
-  const [newPass, setNewPass] = useState("");
-  const [confirmNewPass, setConfirmNewPass] = useState("");
-  const [isPassValid, setIsPassValid] = useState(false);
+  const userPassword = user.user.password;
+  const Validate = Yup.object({
+    name: Yup.string().max(15, "Name most be less then 15 chars"),
+    fName: Yup.string().max(15, "Family Name most be less then 15 chars"),
+    email: Yup.string().email("Email Invalid"),
+    currentPass: Yup.string().required(
+      "Password Feild Is Requaired For Changes"
+    ),
+    newPassword: Yup.string().min(8, "Password Most be at least 8 char"),
+    confirmNewpass: Yup.string().oneOf(
+      [Yup.ref("newPassword"), null],
+      "Passwords are Not Match"
+    ),
+  });
 
-  const submitHandler = () => {
-    // name setter
-    if (newName !== "") {
-      if (!isPassValid) {
-        Toastify("error", "Incurrect Password");
-      } else {
-        user.setUser({ ...user.user, name: newName });
-        Toastify("success", "Your Name Changed")
-
+  const submitHandler = (values) => {
+    if (values.currentPass === userPassword) {
+      if (values.name !== "") {
+        user.setUser((prev) => ({
+          ...prev,
+          name: values.name,
+        }));
       }
+
+      if (values.fName !== "") {
+        user.setUser((prev) => ({
+          ...prev,
+          fname: values.fName,
+        }));
+      }
+
+      if (values.email !== "") {
+        user.setUser((prev) => ({
+          ...prev,
+          email: values.email,
+        }));
+      }
+      if (values.newPassword === values.confirmNewpass) {
+        user.setUser((prev) => ({
+          ...prev,
+          password: values.newPassword,
+        }));
+      }
+    } else {
+      Toastify("error", "Incurrect Password");
     }
-    // fname setter
-    if (newFname !== "") {
-      if (!isPassValid) {
-        Toastify("error", "Incurrect Password");
-      } else {
-        user.setUser({ ...user.user, fname: newFname });
-        Toastify("success", "Your Family Name Changed")
-      }
-    }
-    //email setter
-    if (newEmail !== "") {
-      if (!isPassValid) {
-        Toastify("error", "Incurrect Password");
-      } else {
-        user.setUser({ ...user.user, email: newEmail });
-        Toastify("success", "Your Email Changed")
-
-      }
-    }
-    // password setter
-    if (newPass !== "" && confirmNewPass !== "") {
-      if (!isPassValid) {
-        Toastify("error", "Incurrect Password");
-      }else if(newPass !== confirmNewPass){
-        Toastify("error", "Passwords does not match");
-      }
-       else {
-        user.setUser({ ...user.user, password: newPass });
-        Toastify("success", "Your Password Changed")
-
-      }
-    } 
   };
   return (
     <div className="account">
       <Navbar />
       <div className="account__wrapper">
         <div className="account__wrapper__inputs">
-        <span>Change Name</span>
-          <input
-            type="text"
-            value={newName}
-            placeholder="New Name"
-            onChange={(e) => {
-              setNewName(e.target.value);
+          <Formik
+            validationSchema={Validate}
+            initialValues={{
+              name: "",
+              fName: "",
+              email: "",
+              currentPass: "",
+              newPassword: "",
+              confirmNewpass: "",
             }}
-          />
-        <span>Change Family Name</span>
-          <input
-            type="text"
-            placeholder="New Family Name"
-            value={newFname}
-            onChange={(e) => {
-              setNewFname(e.target.value);
+            onSubmit={(values) => {
+              submitHandler(values);
             }}
-          />
-        <span>Change Email</span>
-          <input
-            type="email"
-            placeholder="New Email"
-            value={newEmail}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <h5>Confirm Your Changes</h5>
-          <input
-            type="password"
-            placeholder="Current Password"
-            onChange={(e) => {
-              if (e.target.value === oldPassword) {
-                setIsPassValid(true);
-              }
-            }}
-          />
-          <h5>Change Password</h5>
-          <input
-            type="password"
-            value={newPass}
-            onChange={(e) => {
-              setNewPass(e.target.value);
-            }}
-            placeholder="New Password"
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmNewPass}
-            onChange={(e) => {
-              setConfirmNewPass(e.target.value);
-            }}
-          />
+          >
+            {(formik) => (
+              <div>
+                {/* {console.log(formik.values)} */}
+                <Form>
+                  <TextInput label="name" name="name" type="text" />
+                  <TextInput label="Family Name" name="fName" type="text" />
+                  <TextInput label="email" name="email" type="email" />
+                  <TextInput
+                    label="currentPass"
+                    name="currentPass"
+                    type="password"
+                  />
+                  <TextInput
+                    label="newPassword"
+                    name="newPassword"
+                    type="password"
+                  />
+                  <TextInput
+                    label="confirmNewpass"
+                    name="confirmNewpass"
+                    type="password"
+                  />
+                  <button type="submit" className="submitBtn">
+                    Submit Changes
+                  </button>
+                </Form>
+              </div>
+            )}
+          </Formik>
         </div>
-        <button className="submitBtn" onClick={submitHandler}>
-          Submit Changes
-        </button>
       </div>
       <ToastContainer />
     </div>

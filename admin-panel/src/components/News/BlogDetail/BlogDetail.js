@@ -3,16 +3,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { blogContext } from "../../../context/BlogContextProvider";
 import { shorten } from "../../../helpers/functions";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { v4 } from "uuid";
 const BlogDetail = (props) => {
   // const id = props.match.params.id;
-  const params = useParams()
+  const params = useParams();
   // console.log(id.id)
   const [blog, setBlog] = useState([]);
   const data = useContext(blogContext);
-  let singleBlog = data.filter((item) => {
-    return item._id === `${params.id}`;
+  let singleBlog = data.find((item) => {
+    return item._id === params.id;
   });
   useEffect(() => {
     if (data.length > 0) {
@@ -24,23 +24,22 @@ const BlogDetail = (props) => {
     <>
       {blog.length !== 0 ? (
         <div className="blog__single">
-        <img src={blog[0].image} alt={shorten(blog[0].title)}/>
-        <div className="blog__single__wrapper">
-            <div className='blog__single__wrapper__header'>
-                <h2>{blog[0].title}</h2>
-                <ul className="blog__single__wrapper__header__tags">
-                {blog[0].tags.map(tag =>{
-                        return(
-                            <li key={v4()} className="tag">
-                                <Link to="/news">{tag}</Link>
-                            </li>
-                        )
-                    })}
-                </ul>
+          <img src={blog.image} alt={shorten(blog.title)} />
+          <div className="blog__single__wrapper">
+            <div className="blog__single__wrapper__header">
+              <h2>{blog.title}</h2>
+              <ul className="blog__single__wrapper__header__tags">
+                {blog.tags.map((tag) => {
+                  return (
+                    <li key={v4()} className="tag">
+                      <Link to="/news">{tag}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <p>{blog[0].text}</p>
-        </div>
-
+            <p>{blog.text}</p>
+          </div>
         </div>
       ) : (
         <h2>loading...</h2>

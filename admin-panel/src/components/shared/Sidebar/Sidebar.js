@@ -38,7 +38,7 @@ const Sidebar = () => {
         links.map(link =>{
           return(
             <li key={link.title}>
-              <NavLink to={link.link} activeClassName="active">{<link.icon />}{link.title}</NavLink>
+              <NavLink to={link.link} activeclassname="active">{<link.icon />}{link.title}</NavLink>
               
             </li>
           )

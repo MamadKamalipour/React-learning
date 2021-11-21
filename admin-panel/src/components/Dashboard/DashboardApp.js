@@ -5,25 +5,22 @@ import Expenses from "./Expenses/Expenses";
 import Transactions from "./Transactions/Transactions";
 import Overview from "./Overview/Overview";
 import ActivityLog from "./ActivityLog/ActivityLog";
-// import context
-import UserContextProvider from "../../context/UserContextProvider";
 const DashboardApp = () => {
   return (
-      <UserContextProvider>
-        <Navbar />
-        <div className="app__grid">
-          <div className="app__grid__1">
-            <Wallets />
-            <Expenses />
-            <Transactions />
-          </div>
-          <div className="app__grid__2">
-            <Overview />
-            <ActivityLog />
-          </div>
+    <>
+      <Navbar />
+      <div className="app__grid">
+        <div className="app__grid__1">
+          <Wallets />
+          <Expenses />
+          <Transactions />
         </div>
-      </UserContextProvider>
- 
+        <div className="app__grid__2">
+          <Overview />
+          <ActivityLog />
+        </div>
+      </div>
+    </>
   );
 };
 
